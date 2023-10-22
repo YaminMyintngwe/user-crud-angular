@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <span>Manage Users</span>
+            <button type="button" class="btn btn-outline-info" routerLink="{{ 0 }}">Add New User</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Address</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let user of users; index as i;">
+                <td>{{ i+1 }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phoneNumber }}</td>
+                <td>{{ user.gender }}</td>
+                <td>{{ user.address }}</td>
+                <td>
+                    <a class="mr-2" routerLink="{{ user.id }}">
+                        <i class="fa-solid fa-pen-to-square edit-icon"></i>
+                    </a>
+                    <a (click)="onDeleteUser(user.id)">
+                        <i class="fa-solid fa-trash delete-icon"></i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+
+
+
